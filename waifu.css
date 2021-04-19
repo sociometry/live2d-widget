@@ -33,6 +33,7 @@
 	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
 	z-index: 1000;
 	background-color: #e5eef7;
+	opacity: 0.8;
 }
 
 #waifu:hover {
@@ -41,7 +42,7 @@
 
 #waifu-tips {
 	animation: shake 50s ease-in-out 5s infinite;
-	background-color: rgba(236, 217, 188, .5);
+	background-color: rgb(236, 217, 188);
 	border: 1px solid rgba(224, 186, 140, .62);
 	border-radius: 12px;
 	box-shadow: 0 3px 15px 2px rgba(191, 158, 118, .2);
@@ -55,7 +56,7 @@
 	position: absolute;
 	text-overflow: ellipsis;
 	transition: opacity 1s;
-	width: 250px;
+	width: 200px;
 	word-break: break-all;
 }
 
@@ -70,9 +71,9 @@
 
 #waifu #live2d {
 	cursor: grab;
-	height: 300px;
+	height: 250px;
 	position: relative;
-	width: 300px;
+	width: 250px;
 }
 
 #waifu #live2d:active {
@@ -83,7 +84,7 @@
 	color: #aaa;
 	opacity: 0;
 	position: absolute;
-	left: -16px;
+	left: 6px;
 	top: 70px;
 	transition: opacity 1s;
 	background-color: #e5eef7;
