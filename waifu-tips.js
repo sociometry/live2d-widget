@@ -37,7 +37,7 @@ function loadWidget(config) {
 	let userAction = false,
 		userActionTimer,
 		messageTimer,
-		messageArray = ["好久不见，日子过得好快呢……", "我要上天~！", "嗨～陌生人，你好！", "我可爱吗？", "“我看到那些岁月如何奔驰，挨过了冬季，便迎来了春天。”", "知识就是力量。"];
+		messageArray = ["好久不见，日子过得好快呢……", "我要上天～！", "嗨～陌生人，你好！", "我可爱吗？", "“我看到那些岁月如何奔驰，挨过了冬季，便迎来了春天。”", "知识就是力量。"];
 	window.addEventListener("mousemove", () => userAction = true);
 	window.addEventListener("keydown", () => userAction = true);
 	setInterval(() => {
@@ -78,20 +78,20 @@ function loadWidget(config) {
 
 	(function welcomeMessage() {
 		let text;
-		if (location.pathname === "/jushou233/") { // 如果是主页
+		if (location.pathname === "/jushou233") { // 如果是主页
 			const now = new Date().getHours();
 			if (now > 5 && now <= 7) text = "早安！这么早就开始学习了呀。别告诉我通宵了哦。";
 			else if (now > 7 && now <= 11) text = "上午好！保持良好心情，今天也是快乐的一天呢。";
 			else if (now > 11 && now <= 13) text = "中午了，恰饭！";
-			else if (now > 13 && now <= 17) text = "下午了，不要久坐哦~";
-			else if (now > 17 && now <= 19) text = "吃晚饭了~干饭人，干饭魂~~";
+			else if (now > 13 && now <= 17) text = "下午了，不要久坐哦～";
+			else if (now > 17 && now <= 19) text = "吃晚饭了～干饭人，干饭魂～";
 			else if (now > 19 && now <= 21) text = "晚上好，今天过得怎么样？";
-			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "快去睡觉~！"];
-			else text = "还不快去睡觉~！熬夜可不好啊~！";
+			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "快去睡觉～！"];
+			else text = "还不快去睡觉～！熬夜可不好啊～！";
 		} else if (document.referrer !== "") {
 			const referrer = new URL(document.referrer),
 				domain = referrer.hostname.split(".")[1];
-			if (location.hostname === referrer.hostname) text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			if (location.hostname === referrer.hostname) text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>～`;
 			else if (domain === "baidu") text = `Hello！来自 百度搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span> 找到的我吗？`;
 			else if (domain === "so") text = `Hello！来自 360搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&q=")[1].split("&")[0]}</span> 找到的我吗？`;
 			else if (domain === "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
