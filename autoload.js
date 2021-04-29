@@ -1,5 +1,5 @@
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/sociometry/live2d-widget@0.9/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/sociometry/live2d-widget@0.9.1/";
 //const live2d_path = "/live2d-widget/";
 
 // 封装异步加载资源的方法
@@ -29,6 +29,7 @@ if (screen.width >= 768) {
 	Promise.all([
 		loadExternalResource("https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css", "css"),
 		loadExternalResource(live2d_path + "waifu.css", "css"),
+		loadExternalResource(live2d_path + "devtools-detect.js", "js"),
 		loadExternalResource(live2d_path + "live2d.min.js", "js"),
 		loadExternalResource(live2d_path + "waifu-tips.js", "js")
 	]).then(() => {

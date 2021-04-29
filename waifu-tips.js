@@ -63,11 +63,32 @@ function loadWidget(config) {
 				document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");
 			}, 3000);
 		});
-		const devtools = () => {};
-		console.log("%c", devtools);
+		//对于chrome，应该没有完美的办法检测是否打开了控制台，见https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open/48287643#
+		//对chrome，采用了sindresorhus的devtools-detect，但是检测不到独立窗口的控制台
+		//AEPKILL的devtools-detector效果更强，但是会不断清除控制台，故不使用
+		const devtools = /Created by stevenjoezhang, forked(mo gai) by sociometry./;
+		let i = 1, s = "";
+		const flag = navigator.userAgent.toLowerCase().match(/firefox/) ? true : false;
+		console.log(devtools);
 		devtools.toString = () => {
-			showMessage("哈哈，你打开了控制台，想研究啥呀？", 6000, 9);
+			if (flag) {
+				if (i == 2) s = "又";
+				else if (i > 2) s = "第 " + i + " 次";
+				i++;
+				showMessage("哈哈，你" + s + "打开了控制台，想研究啥呀？", 6000, 9);
+			}
+			return "Created by stevenjoezhang, forked(mo gai) by sociometry.";
 		};
+		if (!flag) {
+			window.addEventListener('devtoolschange', event => {
+				if (event.detail.isOpen) {
+					if (i == 2) s = "又";
+					else if (i > 2) s = "第 " + i + " 次";
+					i++;
+					showMessage("哈哈，你" + s + "打开了控制台，想研究啥呀？", 6000, 9);
+				}
+			});
+		}
 		window.addEventListener("copy", () => {
 			showMessage("你都复制了些什么呀，转载要记得加上出处哦！", 6000, 9);
 		});
